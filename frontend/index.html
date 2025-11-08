@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Mate AI Chatbot - Travel Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mind Mate AI Chatbot</h1>
+            <p>Your Intelligent Travel Assistant</p>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <span class="metric-label">Response Time:</span>
+                    <span class="metric-value" id="responseTime">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Documents:</span>
+                    <span class="metric-value" id="documentCount">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Confidence:</span>
+                    <span class="metric-value" id="avgConfidence">-</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="chat-container">
+                <div class="chat-history" id="chatHistory">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            Hello! I'm your Mind Mate AI travel assistant. How can I help you plan your trip today?
+                        </div>
+                        <div class="message-meta">
+                            <span class="timestamp">Just now</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-area">
+                    <div class="document-upload">
+                        <input type="file" id="documentUpload" accept=".pdf,.doc,.docx,.xls,.xlsx" multiple>
+                        <button id="uploadBtn">Upload Travel Documents</button>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="userInput" placeholder="Ask me anything about travel...">
+                        <button id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="retrieval-panel">
+                    <h3>Retrieval Information</h3>
+                    <div id="retrievalInfo">
+                        <p>No query processed yet.</p>
+                    </div>
+                </div>
+                
+                <div class="documents-panel">
+                    <h3>Uploaded Documents</h3>
+                    <ul id="documentList">
+                        <li>No documents uploaded yet.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

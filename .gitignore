@@ -1,0 +1,34 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+env/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Chroma DB and DB files
+chroma_db/
+*.sqlite3
+
+# Uploaded documents and user data
+uploads/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+
+# Node
+node_modules/
+
+# Others
+.env
