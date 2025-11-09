@@ -45,8 +45,8 @@ class MindMateChat {
         
         try {
             console.log('Sending message to backend:', message);
-            // Call the backend API (use /api prefix to match backend)
-            const response = await fetch('http://localhost:8000/api/chat', {
+            // Call the backend API (use relative /api prefix so it works locally and when deployed)
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ class MindMateChat {
             for (let i = 0; i < files.length; i++) {
                 const singleForm = new FormData();
                 singleForm.append('file', files[i]);
-                const resp = await fetch('http://localhost:8000/api/upload-document', {
+                const resp = await fetch('/api/upload-document', {
                     method: 'POST',
                     body: singleForm
                 });
