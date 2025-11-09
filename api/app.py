@@ -43,9 +43,10 @@ async def root_redirect():
 # Initialize components
 document_processor = DocumentProcessor()
 embedding_model = EmbeddingModel()
-vector_store = VectorStore()
+vector_store = VectorStore()  # This will clear the collection automatically now
 retriever = HybridRetriever(vector_store, embedding_model)
 context_manager = ContextManager()
+context_manager.clear_context()  # Clear any existing conversation history
 metrics_tracker = MetricsTracker()
 
 @app.get("/api")

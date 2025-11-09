@@ -29,6 +29,10 @@ class VectorStore:
             self.collection_name = collection_name
             self.collection = self.client.get_or_create_collection(name=collection_name)
             
+            # Clear existing documents for a fresh start
+            self.clear_collection()
+            logger.info("Cleared existing documents for fresh start")
+            
             logger.info(f"Initialized ChromaDB collection: {collection_name}")
         except Exception as e:
             logger.error(f"Error initializing ChromaDB: {str(e)}")
