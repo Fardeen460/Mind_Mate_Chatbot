@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 import logging
 from typing import List, Dict, Any
 import os
@@ -30,6 +31,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve frontend static files at /frontend and redirect root to the frontend index
+app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+
+# Root should redirect to the static frontend index for local runs
+@app.get("/")
+async def root_redirect():
+    return RedirectResponse(url="/frontend/index.html")
 
 # Initialize components
 document_processor = DocumentProcessor()
